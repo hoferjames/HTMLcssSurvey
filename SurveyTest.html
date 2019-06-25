@@ -1,0 +1,233 @@
+<!DOCTYPE HTML>
+<head>
+  <title>Survey Form</title> 
+  <style>
+  h1 {
+    text-align: center;
+    font-size: 3em;
+  } 
+  #description {
+    width: 225px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  ul {
+    list-style: none;
+  }
+  div {
+    line-height: 1.5em;
+  }
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 1.1em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+  .formstyle {
+    height: 25px;
+    margin: 10px;
+  }
+  .text {
+    font-size: 1.2em;
+    margin-top: .5em;
+  }
+  .align {
+    display: grid;
+    grid-template-columns: 60px 200px;
+    grid-template-rows: 1fr;
+    grid-gap: 10px;
+    
+  }
+  .image {
+
+  }
+  div.align {
+    margin-left: 10%;
+    margin-right: 40%;
+  }
+  #img {
+    position: absolute;
+    background-image: url(https://images.theconversation.com/files/200232/original/file-20171220-4957-hspudb.jpg?ixlib=rb-1.1.0&amp;rect=1%2C92%2C997%2C498&amp;q=45&amp;auto=format&amp;w=1356&amp;h=668&amp;fit=crop);
+    
+    background-attachment: fixed;
+    background-size: 100%;    
+    width: 100%;
+    height: auto;
+  }
+  #submit {
+    width: 300px;
+    height: 50px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+  }
+  #textbox {
+    width: 300px;
+    height: 150px;
+  }
+  textarea {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  footer{
+    text-align: right;
+    background-color: #FFFF8D;
+  }
+  div.questions {
+    margin-left: 10%;
+  }
+
+</style>  
+</head>
+<body>
+  <!--Title-->
+  <h1 id="title">Happiness Survey</h1>
+  <!--Background Image-->
+    <div class="image" id="img">
+  <!--Survey Description-->
+    <p id="description">This survey aims to capture data about people and their state of happiness with respect to their life situation.</p>
+  <!--The survey form starts here-->
+<form id="survey-form" action="/2">
+    <div class="align">
+      <!--Information collection about the person on the form-->
+      <label for="name" class="text" id="name-label"><span>Name:</span></label>
+       <input class="formstyle" id="name" type="text" placeholder="Last, First Name" required>
+      <label for="age" class="text" id="number-label"><span>Age:</span></label>
+       <input class="formstyle" id="number" min="0" max="150" type="number" placeholder="XX" required>  
+      <label for="email" class="text" id="email-label"><span>Email:</span></label>
+       <input class="formstyle" id="email" type="email" placeholder="johndoe@gmail.com" required>
+      <label class="text" id="gender"><span>Gender:</span></label>
+        <select name="gender" id="dropdown" class="formstyle">
+         <option value="Male">Male</option>
+         <option value="Female">Female</option>
+         <option value="Other">Other</option>
+        </select>
+    </div>
+  <!--The start of the 3 survey questions-->
+   <div class="questions">   
+     <div class="text" style="margin-top:3em;"><span>1. How happy are you?</span></div>
+      <ul> 
+      <li><label class="container">
+      <input type="radio" name="question1">Very Happy
+      <span class="checkmark"></span>
+      </label></li> 
+      <li><label class="container">
+      <input type="radio" name="question1">Somewhat Happy
+      <span class="checkmark"></span>
+      </label></li> 
+      <li><label class="container">
+      <input type="radio" name="question1">Just Happy
+      <span class="checkmark"></span>
+      </label></li>  
+      <li><label class="container">
+      <input type="radio" name="question1">Not Happy
+      <span class="checkmark"></span>
+      </label></li>  
+      <li><label class="container">
+      <input type="radio" name="question1">Sad
+      <span class="checkmark"></span>
+      </label></li>  
+      </ul>
+     <div class="text"><span>2. What is your income level?</span></div>
+      <ul>
+      <li><label class="container">
+      <input type="radio" name="question2">$100k+
+      <span class="checkmark"></span>
+      </label></li>
+      <li><label class="container">
+      <input type="radio" name="question2">$50k - $100k
+      <span class="checkmark"></span>
+      </label></li> 
+      <li><label class="container">
+      <input type="radio" name="question2">$25 - $50k
+      <span class="checkmark"></span>
+      </label></li> 
+      <li><label class="container">
+      <input type="radio" name="question2">$0 - $25k
+      <span class="checkmark"></span>
+      </label></li> 
+      </ul>    
+     <div class="text"><span>3. Select all that apply:</span></div>
+      <ul>
+      <li><label class="container">
+      <input type="checkbox" name="question3" value="marital">I have many friends.
+      <span class="checkmark"></span>
+        </label></li>
+      <li><label class="container">
+      <input type="checkbox" name="question3" value="marital">I exercise regularly.
+      <span class="checkmark"></span>
+      </label></li>
+      <li><label class="container">
+      <input type="checkbox" name="question3" value="marital">I have a pet.
+      <span class="checkmark"></span>
+      </label></li> 
+      <li><label class="container">
+      <input type="checkbox" name="question3" value="marital">I get at least 8 hours of sleep each night.
+      <span class="checkmark"></span>
+      </label></li>
+     </ul> </div>
+  <!--Text box at the bottom of the page-->
+  <div><textarea id="textbox" rows="10" cols="30">Additional Information</textarea></div>
+   <!--submit button at the bottom of the page-->
+<button type="submit" id="submit">Submit</button>
+      </form>
+  
+</body>
+    <!--Inspirational quote in the footer-->
+<footer>"Don't Worry, Be Happy" -Bob Marley
+</footer>
+    
